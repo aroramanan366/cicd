@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone','https://source.developers.google.com/p/rb-munish-playground/r/github_aroramanan366_cicd']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build',' -t','gcr.io/rb-munish-playground/flaskcode:v1.0','.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push','gcr.io/rb-munish-playground/flaskcode:v1.0']
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/deployment-file'
+      - 'deployment-file=gcr.io/rb-munish-playground/flaskcode:v1.0'
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER= publicclut'
