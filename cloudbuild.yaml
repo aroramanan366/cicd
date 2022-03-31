@@ -6,7 +6,7 @@ steps:
     args: ['build', '.', '-t' , 'gcr.io/rb-munish-playground/flaskcode']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push','gcr.io/rb-munish-playground/flaskcode:v1.0']
+    args: ['push','gcr.io/rb-munish-playground/flaskcode']
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
