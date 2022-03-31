@@ -3,7 +3,7 @@ steps:
     args: ['clone','https://source.developers.google.com/p/rb-munish-playground/r/github_aroramanan366_cicd']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build . -t  gcr.io/rb-munish-playground/flaskcode']
+    args: ['build', '.', '-t' , 'gcr.io/rb-munish-playground/flaskcode']
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push','gcr.io/rb-munish-playground/flaskcode:v1.0']
