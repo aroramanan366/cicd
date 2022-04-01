@@ -12,8 +12,8 @@ steps:
     args:
       - 'set'
       - 'image'
-      - 'gcr.io/rb-munish-playground/flaskcode'
-      - 'deployment-file=deployment.yaml'
+      - 'deployment/deployment-file'
+      - 'deployment-file=gcr.io/rb-munish-playground/flaskcode'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=publicclut'
