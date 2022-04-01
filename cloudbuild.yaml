@@ -3,17 +3,17 @@ steps:
     args: ['clone','https://source.developers.google.com/p/rb-munish-playground/r/github_aroramanan366_cicd']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '.', '-t' , 'gcr.io/rb-munish-playground/flaskcode']
+    args: ['build', '.', '-t' , 'gcr.io/rb-munish-playground/poddeploy']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push','gcr.io/rb-munish-playground/flaskcode']
+    args: ['push','gcr.io/rb-munish-playground/poddeploy']
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
       - 'set'
       - 'image'
       - 'deployment/deployment-file'
-      - 'flaskcode=gcr.io/rb-munish-playground/flaskcode'
+      - 'flaskcode=gcr.io/rb-munish-playground/poddeploy'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=publicclut'
