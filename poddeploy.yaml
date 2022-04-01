@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: poddeployment
+  labels:
+     name: poddeployment
+     tier: front-end
+
+spec:
+   containers:
+     - name: flaskcode
+       image: gcr.io/rb-munish-playground/poddeploy
